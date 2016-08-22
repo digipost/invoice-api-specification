@@ -2,9 +2,30 @@
 
 This API makes it possible for third parties (*sender*) to access and perform certain operations on a *user's* documents in Digipost. The *user* grants the *sender* access to documents through an *agreement*. The *agreement* governs which documents the *sender* can access and what operations it can perform. For example, the agreement type `INVOICE_BANK` allows a *sender* to retrieve a *user's* invoices and update their payment status.
 
-## System account
+## Table of contents
 
-Before a system can access the API it must be registered in Digipost and it must be granted access to one or more agreement types that governs which operations it can perform on behalf of users.
+* [Organisation account](#organisation-account)
+* [API technical](#api-technical)
+* [Identify Digipost user](#identify-digipost-user)
+* [Agreements](#agreements)
+    * [Create or update agreement](#create-or-update-agreement)
+    * [Read user agreement](#read-user-agreement)
+    * [Get all agreements for a specific user](#get-all-agreements-for-a-specific-user)
+    * [Delete agreement](#delete-agreement)
+* [Documents](#documents)
+    * [Get all documents for a given user and agreement](#get-all-documents-for-a-given-user-and-agreement)
+    * [Get document count for a user](#get-document-count-for-a-user)
+    * [Get single document by ID](#get-single-document-by-id)
+    * [Update document, set status of invoice](#update-document-set-status-of-invoice)
+    * [Get document content (pdf/html)](#get-document-content-pdf-html)
+* [Error handling](#error-handling)
+* [Security](#security)
+* [Miscellaneous](#miscellaneous)
+* [Java Client Library](#java-client-library)
+
+## Organisation account
+
+Before an organisation can access the API it must be registered in Digipost and it must be granted access to one or more agreement types that governs which operations it can perform on behalf of users.
 
 ### Broker
 
