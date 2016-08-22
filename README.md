@@ -1,3 +1,3 @@
 # Documentation for Digipost's external APIs
 
-[User documents API](user-docuements.md)
+[User documents API](user-documents.md)
