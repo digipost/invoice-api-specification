@@ -17,7 +17,7 @@ This API makes it possible for third parties (*sender*) to access and perform ce
     * [Get document count for a user](#get-document-count-for-a-user)
     * [Get single document by ID](#get-single-document-by-id)
     * [Update document, set status of invoice](#update-document-set-status-of-invoice)
-    * [Get document content (pdf/html)](#get-document-content-pdf-html)
+    * [Get document content (pdf/html)](#get-document-content-pdfhtml)
 * [Error handling](#error-handling)
 * [Security](#security)
 * [Miscellaneous](#miscellaneous)
