@@ -51,6 +51,7 @@ Når en bruker mottar en faktura i Digipost kan hun alltid se både fakturabilag
 For å gjøre det enklest mulig for brukeren å betale fakturaen tilbyr Digipost to måter å betale fakturaen på. Figur 2 illustrere de to alternativene.
 
 ![Figur 1: Fakturavisning i Digipost](fakturavisning-digipost.png)
+
 Figur 1: Fakturavisning i Digipost
 
 ###	Betal fra Digipost
@@ -66,6 +67,7 @@ Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger p
 Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se seksjon 5 for detaljert løsningsbeskrivelse.
 
 ![Figur 2: Integrasjonsalternativer](integrasjonsalternativer.png)
+
 Figur 2: Integrasjonsalternativer
 
 ##	Betal fra Digipost
@@ -73,6 +75,7 @@ Figur 2: Integrasjonsalternativer
 Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Denne løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
 
 ![Figur 3: Systemskisse for betal fra Digipost](systemskisse-betal-fra-digipost.png)
+
 Figur 3: Systemskisse for betal fra Digipost
 
 Betal fra Digipost vil for brukeren innebære følgende steg i Digiposts brukergrensesnitt (se Figur 4):
@@ -81,6 +84,7 @@ Betal fra Digipost vil for brukeren innebære følgende steg i Digiposts brukerg
 2.	Ett klikks legg faktura til forfall på kontoen som ble valgt i steg 1
 
 ![Figur 4: Brukerflyt betal fra Digipost](brukerflyt-betal-fra-digipost.png)
+
 Figur 4: Brukerflyt betal fra Digipost
 
 ###	Avtaleinngåelse
@@ -102,6 +106,7 @@ Denne seksjonene beskriver løsningen hvor brukeren kan betale fakturaen direkte
 Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
 
 ![Figur 5: Systemskisse for betal fra nettbanken](systemskisse-betal-fra-bank.png)
+
 Figur 5: Systemskisse for betal fra nettbanken
 
 Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens brukergrensesnitt (Se Figur 6):
@@ -111,6 +116,7 @@ Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens bru
 3.	Betale faktura
 
 ![Figur 6: Brukerflyt betal fra nettbanken](brukerflyt-betal-fra-bank.png)
+
 Figur 6: Brukerflyt betal fra nettbanken
 
 ###	Identifisering av Digipostbrukere
