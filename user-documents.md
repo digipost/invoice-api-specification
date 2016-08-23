@@ -50,7 +50,7 @@ Operation: `IdentifyUser`
 POST /api/identification
 
 <identification>
-    <personal-identification-number>01018012345</personal-identification-number>
+  <personal-identification-number>01018012345</personal-identification-number>
 </identification>
 ```
 
@@ -60,7 +60,7 @@ POST /api/identification
 HTTP/1.1 200 Ok
 
 <identification-result>
-    <result>DIGIPOST</result>
+  <result>DIGIPOST</result>
 </identification-result>
 ```
 

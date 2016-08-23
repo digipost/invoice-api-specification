@@ -1,5 +1,25 @@
 # Tjenestebeskrivelse: Faktura i Digipost
 
+## Innhold
+
+* [Innledning](#innledning)
+* [Parter og roller](#parter-og-roller)
+* [Overordnet tjenestebeskrivelse](#overordnet-tjenestebeskrivelse)
+* [Betal fra Digipost](#betal-fra-digipost)
+  * [Avtaleinngåelse](#avtaleinngåelse)
+  * [Valg av kontonummer](#valg-av-kontonummer)
+  * [Legg faktura til forfall](#legg-faktura-til-forfall)
+* [Betal fra nettbanken](#betal-fra-nettbanken)
+  * [Identifisering av Digipostbrukere](#identifisering-av-digipostbrukere)
+  * [Opprette avtale om utlevering av fakturainformasjon](#opprette-avtale-om-utlevering-av-fakturainformasjon)
+  * [Hente fakturametadata og bilag](#hente-fakturametadata-og-bilag)
+  * [Oppdatere fakturastatus](#oppdatere-fakturastatus)
+  * [Oppdatere fakturastatus](#oppdatere-fakturastatus)
+  * [Teknisk løsning for APIet](#teknisk-løsning-for–apiet)
+  * [Sikkerhet](#sikkerhet)
+  * [Klientbibliotek](#klientbibliotek)
+
+
 ## Innledning
 
 Dette dokumentet beskriver tjenestene Digipost tilbyr til banker for å integrere betaling av fakturaer mottatt i Digipost direkte i banken.
@@ -159,7 +179,7 @@ Følgende API-operasjoner er tilgjengelig:
 
 Brukes til å oppdatere status på en faktura gitt fakturaens unike ID (gis i responsen fra GetDocuments ovenfor). Gyldige statuser inkluderer: ubetalt, betalt og usynlig
 
-###	Teknisk løsning for APIer
+###	Teknisk løsning for APIet
 
 API-funksjonene beskrevet i avsnitt 4 Funksjonalitet tilbys som et sett av REST-tjenester over HTTP. Dataformat er XML eller JSON.
 
@@ -181,17 +201,3 @@ For å forenkle integrasjonen tilbyr Digipost et klientbibliotek for Java. Klien
 *	Korrekt implementasjon av sikkerhetsmekanismer
 *	Enkel oppgradering til nyeste versjoner (tilgjengelig i maven central)
 * Kontinuerlig vedlikeholdt og testet
-
-## Tilgjengelighet
-
-Målet er at systemene alltid skal være tilgjengelige. Likevel vil uforutsette feil, ytre omstendigheter og planlagte oppgraderinger føre til at systemet er utilgjengelig i kortere perioder.
-
-Ved planlagt utilgjengelighet vil Digipost varsle banken på forhånd. Ved uforutsett utilgjengelighet vil Digipost varsle banken innen rimelig tid etter at utilgjengeligheten oppdages.
-
-##	Brukerstøtte
-
-Banken og Digipost samarbeider om å gi brukeren best mulig opplevelse av tjenestene. Det bør legges opp til at brukeren får nødvendig og tilstrekkelig informasjon gjennom brukergrensesnittene i banken og Digipost, også ved feilsituasjoner.
-
-Henvendelser til bankens brukerstøtte som ikke kan besvares fordi årsaken ligger i Digipost eller fordi banken trenger ytterligere informasjon fra Digipost for å svare på henvendelsen, henvises til Digiposts brukerstøtte.
-
-Henvendelser til Digiposts brukerstøtte som ikke kan besvares fordi årsaken ligger i banken eller fordi Digipost trenger ytterligere informasjon fra banken for å svare på henvendelsen, henvises til bankens brukerstøtte.
