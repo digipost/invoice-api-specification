@@ -57,13 +57,13 @@ Figur 1: Fakturavisning i Digipost
 
 Brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank ved å trykke på knappen ”Send til nettbank” i høyremenyen i skjermbildet på Figur 1.
 
-Denne løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr. APIene må støtte å hente ut kontonummer og opprette betalinger. Se *[Betal fra Digipost](#betal-fra-digipost-1)* for detaljert løsningsbeskrivelse.
+Løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr. APIene må støtte å hente ut kontonummer og opprette betalinger. Se *[Betal fra Digipost](#betal-fra-digipost-1)* for detaljert løsningsbeskrivelse.
 
 ###	Betal fra nettbanken
 
 Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret på samme måte som for e-faktura.
 
-Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken-1)* for detaljert løsningsbeskrivelse.
+Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken-1)* for detaljert løsningsbeskrivelse.
 
 <img src="integrasjonsalternativer.png" width="500">
 
@@ -71,7 +71,7 @@ Figur 2: Integrasjonsalternativer
 
 ##	Betal fra Digipost
 
-Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Denne løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
+Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
 
 <img src="systemskisse-betal-fra-digipost.png" width="500">
 
@@ -102,7 +102,7 @@ Når brukeren har valgt betalingskonto vil hun kunne legge en faktura til forfal
 
 Denne seksjonene beskriver løsningen hvor brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret.
 
-Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
+Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
 
 <img src="systemskisse-betal-fra-bank.png" width="600">
 
