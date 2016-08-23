@@ -45,7 +45,7 @@ Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger p
 
 Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se seksjon 5 for detaljert løsningsbeskrivelse.
 
-![Figur 2: Integrasjonsalternativer](Integrasjonsalternativer.png)
+![Figur 2: Integrasjonsalternativer](integrasjonsalternativer.png)
 Figur 2: Integrasjonsalternativer
 
 ##	Betal fra Digipost
