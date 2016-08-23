@@ -65,7 +65,7 @@ Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger p
 
 Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se seksjon 5 for detaljert løsningsbeskrivelse.
 
-![Figur 2: Integrasjonsalternativer](integrasjonsalternativer.png)
+<img src="integrasjonsalternativer.png" width="500">
 
 Figur 2: Integrasjonsalternativer
 
@@ -73,7 +73,7 @@ Figur 2: Integrasjonsalternativer
 
 Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Denne løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
 
-![Figur 3: Systemskisse for betal fra Digipost](systemskisse-betal-fra-digipost.png)
+<img src="systemskisse-betal-fra-digipost.png" width="500">
 
 Figur 3: Systemskisse for betal fra Digipost
 
@@ -82,7 +82,7 @@ Betal fra Digipost vil for brukeren innebære følgende steg i Digiposts brukerg
 1.	Første gangs oppsett med aksept av avtale og valg av betalingskonto
 2.	Ett klikks legg faktura til forfall på kontoen som ble valgt i steg 1
 
-![Figur 4: Brukerflyt betal fra Digipost](brukerflyt-betal-fra-digipost.png)
+<img src="brukerflyt-betal-fra-digipost.png" width="500">
 
 Figur 4: Brukerflyt betal fra Digipost
 
@@ -104,7 +104,7 @@ Denne seksjonene beskriver løsningen hvor brukeren kan betale fakturaen direkte
 
 Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
 
-![Figur 5: Systemskisse for betal fra nettbanken](systemskisse-betal-fra-bank.png)
+<img src="systemskisse-betal-fra-bank.png" width="600">
 
 Figur 5: Systemskisse for betal fra nettbanken
 
@@ -114,7 +114,7 @@ Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens bru
 2.	Se oversikt over ubetalte fakturaer
 3.	Betale faktura
 
-![Figur 6: Brukerflyt betal fra nettbanken](brukerflyt-betal-fra-bank.png)
+<img src="brukerflyt-betal-fra-bank.png" width="500">
 
 Figur 6: Brukerflyt betal fra nettbanken
 
