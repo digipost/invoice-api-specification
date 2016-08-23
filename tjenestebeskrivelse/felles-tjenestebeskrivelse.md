@@ -9,7 +9,7 @@
     * [Avtaleinngåelse](#avtaleinngåelse)
     * [Valg av kontonummer](#valg-av-kontonummer)
     * [Legg faktura til forfall](#legg-faktura-til-forfall)
-* [Betal fra nettbanken](#betal-fra-nettbanken)
+* [Betal fra nettbanken](#betal-fra-nettbanken-1)
     * [Identifisering av Digipostbrukere](#identifisering-av-digipostbrukere)
     * [Opprette avtale om utlevering av fakturainformasjon](#opprette-avtale-om-utlevering-av-fakturainformasjon)
     * [Hente fakturametadata og bilag](#hente-fakturametadata-og-bilag)
@@ -63,7 +63,7 @@ Denne løsningen baserer seg på at Digipost har en integrasjon med APIer som ba
 
 Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret på samme måte som for e-faktura.
 
-Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken)* for detaljert løsningsbeskrivelse.
+Denne løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken-1)* for detaljert løsningsbeskrivelse.
 
 <img src="integrasjonsalternativer.png" width="500">
 
