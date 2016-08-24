@@ -295,8 +295,6 @@ Operation: `UpdateInvoice`
 POST /api/<sender-id>/user-documents/<id>/invoice
 
 <invoice>
-  <new-due-date>14.10.2016</new-due-date>
-  <new-amount>299.40</new-amount>
   <status>paid</status>
 </invoice>
 ```
@@ -309,6 +307,7 @@ Location: /api/<sender-id>/user-documents/<id>
 ```
 
 After successful update the entire document state can be refreshed from the url in the Location-header.
+
 
 ### Get document content (pdf/html)
 
