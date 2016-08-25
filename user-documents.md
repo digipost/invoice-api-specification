@@ -438,6 +438,10 @@ For easy integration with Digipost Document API we provide a Java client library
 * Easy to upgrade to new versions of the API (available from maven central)
 * Continuously developed and tested
 
+### Work in progress implementation
+
+https://github.com/digipost/digipost-api-client-java/tree/user-documents
+
 ### Code example
 
 ```java
