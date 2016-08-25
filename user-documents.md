@@ -48,6 +48,8 @@ Operation: `IdentifyUser`
 
 ```xml
 POST /api/identification
+Accept: application/vnd.digipost.user-v1+xml
+Content-Type: application/vnd.digipost.user-v1+xml
 
 <identification>
   <personal-identification-number>01018012345</personal-identification-number>
@@ -112,6 +114,7 @@ Operation: GetAgreement
 
 ```
 GET /api/<sender-id>/user-agreements?user-id=12345678901&agreement-type=invoice-bank
+Accept: application/vnd.digipost.user-v1+xml
 ```
 
 #### Response:
@@ -144,6 +147,7 @@ Operation: `GetAgreements`
 
 ```
 GET /api/<sender-id>/user-agreements?user-id=01018012345
+Accept: application/vnd.digipost.user-v1+xml
 ```
 
 #### Response:
@@ -204,6 +208,7 @@ Operation: `GetDocuments`
 
 ```
 GET /api/<sender-id>/user-documents?user-id=01018012345&agreement-type=invoice-bank&invoice-status=unpaid&invoice-due-date-from=20150101
+Accept: application/vnd.digipost.user-v1+xml
 ```
 
 #### Response:
@@ -236,7 +241,7 @@ Operation: `GetDocumentCount`
 ```
 GET /api/<sender-id>/user-documents/count?user-id=01018012345&agreement-type=invoice-dnb&invoice-status=unpaid&invoice-due-date-from=20150101
 Accept: text/plain
-Accept: application/xml
+Accept: application/vnd.digipost.user-v1+xml
 ```
 
 #### Response:
@@ -247,7 +252,7 @@ HTTP/1.1 200 Ok
 5
 ```
 
-Or if Accept: application/xml or application/vnd.digipost.user-v1+xml
+Or if Accept: application/vnd.digipost.user-v1+xml
 
 ```xml
 <document-count>5</document-count>
@@ -261,6 +266,7 @@ Operation: `GetDocument`
 
 ```
 GET /api/<sender-id>/user-documents/<id>?agreement-type=invoice-bank
+Accept: application/vnd.digipost.user-v1+xml
 ```
 
 #### Response:
@@ -293,6 +299,7 @@ Operation: `UpdateInvoice`
 
 ```xml
 POST /api/<sender-id>/user-documents/<id>/invoice
+Content-Type: application/vnd.digipost.user-v1+xml
 
 <invoice>
   <new-due-date>14.10.2016</new-due-date>
