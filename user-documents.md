@@ -39,6 +39,7 @@ The sender is the organization that wants access to user data. Every sender has 
 
 * Type: XML over HTTP RESTful API
 * Media type for XML: `application/vnd.digipost.user-v1+xml`
+* [Java client library available](#java-client-library)
 
 ## Identify Digipost user
 
