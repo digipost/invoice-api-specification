@@ -49,9 +49,7 @@ Når en bruker mottar en faktura i Digipost kan hun alltid se både fakturabilag
 
 For å gjøre det enklest mulig for brukeren å betale fakturaen tilbyr Digipost to måter å betale fakturaen på. Figur 2 illustrere de to alternativene.
 
-![Figur 1: Fakturavisning i Digipost](fakturavisning-digipost.png)
-
-Figur 1: Fakturavisning i Digipost
+![Fakturavisning i Digipost](fakturavisning-digipost.png)
 
 ###	Betal fra Digipost
 
@@ -65,38 +63,36 @@ Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger p
 
 Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken-1)* for detaljert løsningsbeskrivelse.
 
-![Figur 2: Integrasjonsalternativer](integrasjonsalternativer.png)
-
-Figur 2: Integrasjonsalternativer
+![Integrasjonsalternativer](integrasjonsalternativer.png)
 
 ##	Betal fra Digipost
 
 Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
 
-![Figur 3: Systemskisse for betal fra Digipost](systemskisse-betal-fra-digipost.png)
-
-Figur 3: Systemskisse for betal fra Digipost
+![Systemskisse for betal fra Digipost](systemskisse-betal-fra-digipost.png)
 
 Betal fra Digipost vil for brukeren innebære følgende steg i Digiposts brukergrensesnitt (se Figur 4):
 
 1.	Første gangs oppsett med aksept av avtale og valg av betalingskonto
 2.	Ett klikks legg faktura til forfall på kontoen som ble valgt i steg 1
 
-![Figur 4: Brukerflyt betal fra Digipost](brukerflyt-betal-fra-digipost.png)
-
-Figur 4: Brukerflyt betal fra Digipost
+![Brukerflyt betal fra Digipost](brukerflyt-betal-fra-digipost.png)
 
 ###	Avtaleinngåelse
 
-Før kontonummer kan hentes ut må brukeren akseptere vilkårene til tjenesten og godta at banken utleverer kontoinformasjon til Digipost. Dette skjer i grensesnittet i Digipost. Samtykket lagres i Digipost. I de tilfeller der banken også ønsker å lagre samtykket, vil Digipost gjøre et API-kall mot banken for å opprette en avtale på vegne av brukeren identifisert med fødselsnummer.
+Før kontonummer kan hentes ut må brukeren akseptere vilkårene til tjenesten og godta at banken utleverer kontoinformasjon til Digipost. Dette skjer i grensesnittet i Digipost. Avtalen lagres i Digipost og evnetuelt også i banken. I de tilfeller der avtalen skal lagres i banken, vil Digipost gjøre et API-kall mot banken for å opprette en avtale på vegne av brukeren identifisert med fødselsnummer. Det legges også opp til at Digipost senere kan gjøre et API-kall mot banken for å sjekke om en avtale fortsatt er aktiv (se avsnitt om avslutting av avtale nedenfor).
 
 ###	Valg av kontonummer
 
-Før en faktura kan legges til forfall må brukeren velge hvilken konto i banken fakturaen skal betales fra. Dette gjøres før første betaling eller når brukeren ønsker å bytte kontonummer. Digipost gjør et API-kall mot banken for å hente kontoliste for brukeren identifisert med fødselsnummer. Brukeren velger betalingskonto og denne lagres på brukerens profil i Digipost.
+Før en faktura kan legges til forfall må brukeren velge hvilke(n) kontoer i banken fakturaen skal betales fra. Dette gjøres før første betaling. Digipost gjør et API-kall mot banken for å hente kontoliste for brukeren. Kontolisten inneholder kontonummer og selvvalgte kontoalias. Konto(ene) lagres på brukerens profil i Digipost.
 
 ###	Legg faktura til forfall
 
-Når brukeren har valgt betalingskonto vil hun kunne legge en faktura til forfall ved å trykke på knappen ”Send til nettbank” i visningsbildet for fakturaen i Digipost (se Figur 1). Digipost gjør et API-kall mot banken for å opprette en betaling på vegne av brukeren identifisert med fødselsnummer. Følgende metadata sendes med: KID, kreditkontonummer, beløp, forfallsdato og tidligere valgt betalingskontonummer.
+Når brukeren har valgt betalingskonto vil hun kunne legge en faktura til forfall ved å trykke på knappen ”Send til nettbank” i visningsbildet for fakturaen i Digipost (se Figur 1). Digipost gjør et API-kall mot banken for å opprette en betaling på vegne av brukeren. Følgende metadata sendes med: Fødselsnummer, KID, kreditkontonummer, beløp, forfallsdato og tidligere valgt betalingskontonummer.
+
+### Avslutte avtalen
+
+Brukeren kan avslutte avtalen enten fra Digipost eller fra banken. Hvis brukeren avslutter avtalen fra banken, vil Digipost få en melding om dette ved å gjøre et API-kall mot banken for å sjekke om en avtale fortsatt er gyldig. Skulle brukeren forsøke å betale en faktura etter at avtalen har blitt avsluttet i banken, vil betalingen avvises og brukeren vil få en melding om at avtalen har blitt avsluttet.
 
 ##	Betal fra nettbanken
 
@@ -104,9 +100,7 @@ Denne seksjonene beskriver løsningen hvor brukeren kan betale fakturaen direkte
 
 Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
 
-![Figur 5: Systemskisse for betal fra nettbanken](systemskisse-betal-fra-bank.png)
-
-Figur 5: Systemskisse for betal fra nettbanken
+![Systemskisse for betal fra nettbanken](systemskisse-betal-fra-bank.png)
 
 Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens brukergrensesnitt (Se Figur 6):
 
@@ -114,9 +108,7 @@ Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens bru
 2.	Se oversikt over ubetalte fakturaer
 3.	Betale faktura
 
-![Figur 6: Brukerflyt betal fra nettbanken](brukerflyt-betal-fra-bank.png)
-
-Figur 6: Brukerflyt betal fra nettbanken
+![Brukerflyt betal fra nettbanken](brukerflyt-betal-fra-bank.png)
 
 ###	Identifisering av Digipostbrukere
 
