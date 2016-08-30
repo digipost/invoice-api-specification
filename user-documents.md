@@ -294,9 +294,11 @@ Operation: `UpdateInvoice`
 ```xml
 POST /api/<sender-id>/user-documents/<id>/invoice
 
-<invoice>
-  <status>paid</status>
-</invoice>
+<invoice-payment>
+  <payment-id>123456787654321</payment-id>
+  <paid-at>2016-08-30T10:00:00.000Z</paid-at>
+  <from-account>10001012345</from-account>
+</invoice-payment>
 ```
 
 #### Response:
