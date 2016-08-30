@@ -302,11 +302,11 @@ Operation: `UpdateInvoice`
 POST /api/<sender-id>/user-documents/<id>/invoice
 Content-Type: application/vnd.digipost.user-v1+xml
 
-<invoice>
-  <new-due-date>14.10.2016</new-due-date>
-  <new-amount>299.40</new-amount>
-  <status>paid</status>
-</invoice>
+<invoice-payment>
+  <payment-id>123456787654321</payment-id>
+  <paid-at>2016-08-30T10:00:00.000Z</paid-at>
+  <from-account>10001012345</from-account>
+</invoice-payment>
 ```
 
 #### Response:
@@ -317,6 +317,7 @@ Location: /api/<sender-id>/user-documents/<id>
 ```
 
 After successful update the entire document state can be refreshed from the url in the Location-header.
+
 
 ### Get document content (pdf/html)
 
