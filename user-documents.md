@@ -321,6 +321,28 @@ Location: /api/<sender-id>/user-documents/<id>
 After successful update the entire document state can be refreshed from the url in the Location-header.
 
 
+### Update document, delete (hide) invoice
+
+Delete sub-resource.
+
+Operation: `DeleteInvoice`
+
+#### Request:
+
+```
+DELETE /api/<sender-id>/user-documents/<id>
+Content-Type: application/vnd.digipost.user-v1+xml
+```
+
+#### Response:
+
+```
+HTTP/1.1 204 No Content
+```
+
+After successful delete the document will not be included in responses to requests to getDocuments, UNLESS request includes query-parameter `invoice-status=deleted`.
+
+
 ### Get document content (pdf/html)
 
 Operation: GetDocumentContent
