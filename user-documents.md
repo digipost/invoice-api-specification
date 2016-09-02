@@ -256,7 +256,9 @@ HTTP/1.1 200 Ok
 Or if Accept: application/vnd.digipost.user-v1+xml
 
 ```xml
-<document-count>5</document-count>
+<document-count>
+  <count>5</count>
+</document-count>
 ```
 
 ### Get single document by ID
