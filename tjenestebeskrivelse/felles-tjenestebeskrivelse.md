@@ -14,6 +14,7 @@
     * [Opprette avtale om utlevering av fakturainformasjon](#opprette-avtale-om-utlevering-av-fakturainformasjon)
     * [Hente fakturametadata og bilag](#hente-fakturametadata-og-bilag)
     * [Oppdatere fakturastatus](#oppdatere-fakturastatus)
+    * [Avtaleoppsigelse og tilgjengelihet for faktura](#avtaleoppsigelse-og-tilgjengelihet-for-faktura)
     * [Teknisk løsning for APIet](#teknisk-løsning-for-apiet)
     * [Sikkerhet](#sikkerhet)
     * [Klientbibliotek](#klientbibliotek)
@@ -175,6 +176,12 @@ Følgende API-operasjoner er tilgjengelig:
 #### UpdateInvoice
 
 Brukes til å oppdatere status på en faktura gitt fakturaens unike ID (gis i responsen fra GetDocuments ovenfor). Gyldige statuser inkluderer: ubetalt, betalt og usynlig
+
+### Avtaleoppsigelse og tilgjengelihet for faktura
+
+Det er kun grunnlag for utveksling av fakturainformasjon så lenge det foreligger en avtale mellom brukeren og banken i Digipost. Figur 7 viser en oversikt over hva som skjer hvis brukeren sletter en faktura i Digipost, sier opp avtalen eller stenger sin Digipost-konto.
+
+![Tilgjengelighet av Digipost-faktura](tilgjengelighet-av-digipost-faktura.png)
 
 ###	Teknisk løsning for APIet
 
