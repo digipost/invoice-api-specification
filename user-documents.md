@@ -45,6 +45,12 @@ The sender is the organization that wants access to user data. Every sender has 
 
 Operation: `IdentifyUser`
 
+#### Java
+
+```java
+IdentificationResult identificationResult = client.identifyUser(senderId, userId);
+```
+
 #### Request
 
 ```xml
@@ -82,7 +88,13 @@ Operation: `CreateOrReplaceAgreement`
 
 For some agreement types the *user* can accept the agreement from the site of the *sender*. The *sender* will then use this API to create the agreement in Digipost.
 
-#### Request:
+#### Java
+
+```java
+client.createOrReplaceAgreement(senderId, new Agreement(INVOICE_BANK, userId));
+```
+
+#### Request
 
 ```xml
 POST /api/<sender-id>/user-agreements
@@ -98,7 +110,7 @@ Content-Type: application/vnd.digipost.user-v1+xml
 </agreement>
 ```
 
-#### Response:
+#### Response
 
 ```
 HTTP/1.1 201 Created
@@ -111,14 +123,20 @@ To update an existing agreement simply post a new agreement of the same type for
 
 Operation: GetAgreement
 
-#### Request:
+#### Java
+
+```java
+GetAgreementResult agreement = client.getAgreement(senderId, INVOICE_BANK, userId);
+```
+
+#### Request
 
 ```
 GET /api/<sender-id>/user-agreements?user-id=12345678901&agreement-type=invoice-bank
 Accept: application/vnd.digipost.user-v1+xml
 ```
 
-#### Response:
+#### Response
 
 ```xml
 HTTP/1.1 200 Ok
@@ -144,14 +162,20 @@ Only agreements that the *sender* have access to will be returned.
 
 Operation: `GetAgreements`
 
-#### Request:
+#### Java
+
+```java
+List<Agreement> agreements = client.getAgreements(senderId, userId);
+```
+
+#### Request
 
 ```
 GET /api/<sender-id>/user-agreements?user-id=01018012345
 Accept: application/vnd.digipost.user-v1+xml
 ```
 
-#### Response:
+#### Response
 
 ```xml
 HTTP/1.1 200 Ok
@@ -171,13 +195,19 @@ HTTP/1.1 200 Ok
 
 Operation: `DeleteAgreement`
 
-Request:
+#### Java
+
+```java
+client.deleteAgreement(senderId, INVOICE_BANK, userId);
+```
+
+#### Request
 
 ```
 DELETE /api/<sender-id>/user-agreements?user-id=12345678901&agreement-type=invoice-bank
 ```
 
-#### Response:
+#### Response
 
 ```
 HTTP/1.1 204 No Content
@@ -205,14 +235,20 @@ A document consists of some commons fields like id, subject, sender etc. and opt
 
 Operation: `GetDocuments`
 
-#### Request:
+#### Java
+
+```java
+List<Document> documents = client.getDocuments(senderId, INVOICE_BANK, userId, InvoiceStatus.UNPAID);
+```
+
+#### Request
 
 ```
 GET /api/<sender-id>/user-documents?user-id=01018012345&agreement-type=invoice-bank&invoice-status=unpaid&invoice-due-date-from=20150101
 Accept: application/vnd.digipost.user-v1+xml
 ```
 
-#### Response:
+#### Response
 
 ```xml
 HTTP/1.1 200 Ok
@@ -237,7 +273,13 @@ HTTP/1.1 200 Ok
 
 Operation: `GetDocumentCount`
 
-#### Request:
+#### Java
+
+```java
+long documentCount = client.getDocumentCount(senderId, INVOICE_BANK, userId, InvoiceStatus.UNPAID);
+```
+
+#### Request
 
 ```
 GET /api/<sender-id>/user-documents/count?user-id=01018012345&agreement-type=invoice-dnb&invoice-status=unpaid&invoice-due-date-from=20150101
@@ -245,7 +287,7 @@ Accept: text/plain
 Accept: application/vnd.digipost.user-v1+xml
 ```
 
-#### Response:
+#### Response
 
 ```
 HTTP/1.1 200 Ok
