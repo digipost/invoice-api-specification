@@ -456,22 +456,13 @@ https://github.com/digipost/digipost-api-client-java/tree/user-documents
 ### Code example
 
 ```java
-InputStream certificate = new FileInputStream("certificate.p12");
-DigipostClient client = new DigipostClient("https://api.digipost.no",
-    CLIENT_ACCOUNT_ID, certificate, CERTIFICATE_PASSWORD);
+final FileInputStream key = new FileInputStream("digipost.p12");
+final BrokerId brokerId = new BrokerId(111);
+final SenderId senderId = new SenderId(222);
 
-BirthNumber customerId = new BirthNumber("26079833787");
-CreateAgreementResponse agreementResponse =
-    client.createAgreement(customerId, AgreementType.INVOICE_BANK,
-        new Attribute("sms-notification"));
+final DigipostUserDocumentClient client = new DigipostUserDocumentClient.Builder(brokerId, key, "password").build();
 
-...
+client.createOrReplaceAgreement(senderId, Agreement.createInvoiceBankAgreement(userId, false), requestTrackingId);
 
-GetDocumentsResponse response = client.getDocuments(customerId, AgreementType.INVOICE_BANK);
-if (response.isOk()) {
-    List<Document> documents = response.getDocuments();
-} else {
-    log.error("Unable to get documents: code={}, message={}",
-      response.getCode(), response.getMessage());
-}
+final List<Document> documents = client.getDocuments(senderId, AgreementType.INVOICE_BANK, userId, InvoiceStatus.UNPAID, null);
 ```
