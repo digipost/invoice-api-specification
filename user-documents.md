@@ -346,11 +346,22 @@ Operation: `UpdateInvoice`
 POST /api/<sender-id>/user-documents/<id>/invoice
 Content-Type: application/vnd.digipost.user-v1+xml
 
-<invoice-payment>
+<invoice-update>
+  <status>PAID</status>
   <payment-id>123456787654321</payment-id>
-  <paid-at>2016-08-30T10:00:00.000Z</paid-at>
   <from-account>10001012345</from-account>
-</invoice-payment>
+</invoice-update>
+```
+
+or 
+
+```xml
+POST /api/<sender-id>/user-documents/<id>/invoice
+Content-Type: application/vnd.digipost.user-v1+xml
+
+<invoice-update>
+  <status>DELETED</status>
+</invoice-update>
 ```
 
 #### Response:
