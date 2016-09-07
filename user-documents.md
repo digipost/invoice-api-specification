@@ -336,8 +336,6 @@ HTTP/1.1 200 Ok
 
 ### Update document, set status of invoice
 
-Post to sub-resource and refresh parent resource after success (303 see other).
-
 Operation: `UpdateInvoice`
 
 #### Request:
@@ -367,8 +365,7 @@ Content-Type: application/vnd.digipost.user-v1+xml
 #### Response:
 
 ```
-HTTP/1.1 303 See Other
-Location: /api/<sender-id>/user-documents/<id>
+HTTP/1.1 204 No Content
 ```
 
 After successful update the entire document state can be refreshed from the url in the Location-header.
