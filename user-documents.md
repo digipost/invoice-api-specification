@@ -330,7 +330,7 @@ HTTP/1.1 200 Ok
     <status>unpaid</status>
     <update-invoice>/api/<sender-id>/user-documents/1234-xyz-000/invoice<update-invoice>
   </invoice>
-  <document-content-url>/api/<sender-id>/user-documents/1234-xyz-000/content</document-content-url>
+  <document-content-uri>/api/<sender-id>/user-documents/1234-xyz-000/content</document-content-uri>
 </document>
 ```
 
@@ -375,7 +375,7 @@ After successful update the entire document state can be refreshed from the url 
 
 Operation: GetDocumentContent
 
-Perform a GET against <document-content-url> and redirect the user’s browser to the url in the response Location header.
+Perform a GET against <document-content-uri> and redirect the user’s browser to the uri in the response Location header.
 
 #### Request:
 
@@ -391,7 +391,7 @@ HTTP/1.1 200 Ok
 
 <document-content>
   <content-type>application/pdf</content-type>
-  <url>https://www.digipostdata.no/documents/34303129?token=30a6648a2cb1ce05d31dd6188135d7107c87d353dfe60f7720a598c4d6a95c2e4cf05f3ab63e52d734d745c2bf5084d37347f58aeca9da743235cf37cdca0ecb&download=false</url>
+  <uri>https://www.digipostdata.no/documents/34303129?token=30a6648a2cb1ce05d31dd6188135d7107c87d353dfe60f7720a598c4d6a95c2e4cf05f3ab63e52d734d745c2bf5084d37347f58aeca9da743235cf37cdca0ecb&download=false</uri>
 </document-content>
 ```
 
