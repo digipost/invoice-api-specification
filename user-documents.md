@@ -328,9 +328,9 @@ HTTP/1.1 200 Ok
     <dueDate>2016-10-14</dueDate>
     <amount>299.40</amount>
     <status>unpaid</status>
-    <update-invoice>/api/user-documents/1234-xyz-000/invoice<update-invoice>
+    <update-invoice>/api/<sender-id>/user-documents/1234-xyz-000/invoice<update-invoice>
   </invoice>
-  <document-content-url>/api/user-document-content/1234-xyz-000</document-content-url>
+  <document-content-url>/api/<sender-id>/user-documents/1234-xyz-000/content</document-content-url>
 </document>
 ```
 
@@ -380,7 +380,7 @@ Perform a GET against <document-content-url> and redirect the user’s browser t
 #### Request:
 
 ```
-GET /api/user-document-content/1234-xyz-000
+GET /api/<sender-id>/user-documents/1234-xyz-000/content
 Accept: application/vnd.digipost.user-v1+xml
 ```
 
