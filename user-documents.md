@@ -351,7 +351,7 @@ Content-Type: application/vnd.digipost.user-v1+xml
 </invoice-update>
 ```
 
-or 
+or
 
 ```xml
 POST /api/<sender-id>/user-documents/<id>/invoice
@@ -394,6 +394,8 @@ HTTP/1.1 200 Ok
   <uri>https://www.digipostdata.no/documents/34303129?token=30a6648a2cb1ce05d31dd6188135d7107c87d353dfe60f7720a598c4d6a95c2e4cf05f3ab63e52d734d745c2bf5084d37347f58aeca9da743235cf37cdca0ecb&download=false</uri>
 </document-content>
 ```
+
+[Details on how the token is generated and validated](#document-content-token)
 
 ## Error handling
 
@@ -483,6 +485,24 @@ String signature =    base64(sign(stringToSign));
 #### Reference
 
 https://digipost.no/plattform/api/v5/sikkerhet
+
+#### Document content token
+
+When a client requests the content uri of a Document a one-time, time limited uniqe uri is generated. The URI looks like:
+
+`https://www.digipostdata.no/documents/34303129?token=30a6648a2cb1ce05d31dd6188135d7107c87d353dfe60f7720a598c4d6a95c2e4cf05f3ab63e52d734d745c2bf5084d37347f58aeca9da743235cf37cdca0ecb&download=false`
+
+The token part is generated with the following algorithm:
+
+```
+tokenBasis = documentId + SECRET_STRING + UUID.randomUUID()
+tokenHashBytes = SHA512(tokenBasis)
+token = String(HexEncode(tokenHashBytes))
+```
+
+The token is stored together with the documentId, created timestamp and some other metadata related to the document. The token is valid for `30` seconds.
+
+When the user requests the generated URI the token is validated against the stored version. The documentId from the URI must also match the documentId associated with the token. The URI can only be used once.
 
 ## Miscellaneous
 
