@@ -429,7 +429,7 @@ Every request issued by the client and every response from the server must conta
 
 #### X509 Certificate
 
-Third party systems must register a public X509 certificate of type “virksomhetssertifikat” with Digipost. This certificate will be used to verify the signature in each request.
+Third party systems must register a X509 certificate with Digipost. This certificate will be used to verify the signature in each request.
 
 #### Headers
 
