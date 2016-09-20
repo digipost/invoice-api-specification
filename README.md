@@ -1,4 +1,4 @@
-# Documentation for Digipost's external APIs
+# Documentation for Digipost's invoice API
 
 * [Tjenestebeskrivelse Faktura i nettbank](tjenestebeskrivelse/felles-tjenestebeskrivelse.md)
-* [User documents API](user-documents.md)
+* [Invoice API technical specification](user-documents.md)
