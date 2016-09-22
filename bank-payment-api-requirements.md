@@ -67,7 +67,7 @@ Digipost retrieves the account list and presents it to the user which chooses wh
 |alias          |string |      |Account alias chosen by the user|
 
 ### Example request
-```xml
+```
 GET /api/accounts?user-id=10037819032&bank-identifier=1234-xyz
 ```
 
