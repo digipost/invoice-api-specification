@@ -4,9 +4,9 @@ This document describes the general requirements for the API that a bank provide
 
 When the customer receives an invoice in Digipost they will be prompted the option to set up 'one click payment' to their bank. They will then go through the following steps:
 
-1. Accept the terms of the service and allow Digipost to retrieeve their account list and create payments on their behalf. Digipost will optionally invoke the API-function [CreateAgreement](#createagreement)
+1. Accept the terms of the service and allow Digipost to retrieve their account list and create payments on their behalf. Digipost will optionally invoke the API-function [CreateAgreement](#createagreement)
 2. Select one or more accounts that will be used to pay invoices from. Digipost will invoke the API-function [GetAccountList](#getaccountlist)
-3. Pay invoices directly from digipost from one of the accounts selected above. Digipost will invoke the API-function [CreatePayment](#createpayment)
+3. Pay invoices directly from Digipost from one of the accounts selected above. Digipost will invoke the API-function [CreatePayment](#createpayment)
 
 
 ## Table of contents
@@ -18,11 +18,11 @@ When the customer receives an invoice in Digipost they will be prompted the opti
 
 ## CreateAgreement
 
-If required by the bank Digipost will send a CreateAgreement request to signal that the user has accepted (in Digipost) the general terms for the service and agrees that Digipost can retrieve account numbers and create payments on behalf of the user. The request may contain an agreement digitally signed (BankId) by the user.
+If required by the bank, Digipost will send a CreateAgreement request to signal that the user has accepted (in Digipost) the general terms for the service and agrees that Digipost can retrieve account numbers and create payments on behalf of the user. The request may contain an agreement digitally signed (BankId) by the user.
 
 The bank stores the agreement and uses it to authorize subsequent payments for the same customer.
 
-## Request
+## Request (parameters)
 
 * bank-identifier (if multiple banks use the same platform)
 * personal-identification-number (fødselsnummer)
@@ -30,9 +30,9 @@ The bank stores the agreement and uses it to authorize subsequent payments for t
 
 ## GetAccountList
 
-Digipost retrieves the account list and presents it to the user which chooses which accounts they will pay invoices from. The chosen accounts are stored on the user's profile in Digipost. Only account that can be used for payment should be returned.
+Digipost retrieves the account list and presents it to the user which chooses which accounts they will pay invoices from. The chosen accounts are stored on the user's profile in Digipost. Only accounts that can be used for payment should be returned.
 
-### Request
+### Request (parameters)
 
 * bank-identifier
 * personal-identification-number (fødselsnummer)
@@ -45,11 +45,11 @@ Digipost retrieves the account list and presents it to the user which chooses wh
 
 ## CreatePayment
 
-When the user receives an invoice they can chose which account to pay from and then submit the payment with one click.
+When the user receives an invoice they can choose which account to pay from and then submit the payment with one click.
 
 After successful response it is expected that the invoice has been added to pending payments in the bank and that it will automatically be paid on the due date unless manually stopped by the user (or due to insufficient funds).
 
-### Request
+### Request (parameters)
 
 * bank-identifier
 * personal-identification-number (fødselsnummer)
@@ -59,7 +59,7 @@ After successful response it is expected that the invoice has been added to pend
 * amount
 * due date
 * invoice issuer name (optional)
-* digipost invoice id (optional, can be used to retrieve invoice specification pdf/html)
+* Digipost invoice id (optional, can be used to retrieve invoice specification pdf/html)
 
 ### Response
 
