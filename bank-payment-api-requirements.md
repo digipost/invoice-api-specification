@@ -59,6 +59,7 @@ After successful response it is expected that the invoice has been added to pend
 * amount
 * due date
 * invoice issuer name (optional)
+* digipost invoice id (optional, can be used to retrieve invoice specification pdf/html)
 
 ### Response
 
