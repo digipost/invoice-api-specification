@@ -22,11 +22,29 @@ If required by the bank, Digipost will send a CreateAgreement request to signal 
 
 The bank stores the agreement and uses it to authorize subsequent payments for the same customer.
 
-## Request (parameters)
+### Request (parameters)
 
-* bank-identifier (if multiple banks use the same platform)
-* personal-identification-number (fødselsnummer)
-* signed-agreement (if required)
+|Field name     |Type  |Length|Description|
+|---------------|------|------|-----------|
+|bank-identifier|string|      |Used to identify the bank when multiple banks use the same payment platform|
+|user-id        |string|11    |Fødselsnummer|
+|signed-agreement ||      |Optional agreement text with digital signature|
+
+### Example request
+```xml
+POST /api/agreements
+
+<agreement>
+  <bank-identifier>1234-xyz</bank-identifier>
+  <user-id>10037819032</user-id>
+  <signed-agreement>...</signed-agreement>
+</agreement>
+```
+
+### Example response
+```
+HTTP/1.1 204 No Content
+```
 
 ## GetAccountList
 
@@ -34,14 +52,40 @@ Digipost retrieves the account list and presents it to the user which chooses wh
 
 ### Request (parameters)
 
-* bank-identifier
-* personal-identification-number (fødselsnummer)
+|Field name     |Type  |Length|Description|
+|---------------|------|------|-----------|
+|bank-identifier|string|      |Used to identify the bank when multiple banks use the same payment platform|
+|user-id        |string|11    |Fødselsnummer|
 
 ### Response
 
-* List of accounts with
-  - account number
-  - account alias
+|Field name     |Type   |Length|Description|
+|---------------|-------|------|-----------|
+|accounts       |list:account   |      |List of account elements|
+|account        |account|      |Element containing the fields below           |
+|account-number |string |11    |Account number|
+|alias          |string |      |Account alias chosen by the user|
+
+### Example request
+```xml
+GET /api/accounts?user-id=10037819032&bank-identifier=1234-xyz
+```
+
+### Example response
+```xml
+HTTP/1.1 200 OK
+
+<accounts>
+  <account>
+    <account-number>03786233254</account-number>
+    <alias>Lønnskonto</alias>
+  <account>
+  <account>
+    <account-number>03786233255</account-number>
+    <alias>Regninger</alias>
+  <account>
+</accounts>
+```
 
 ## CreatePayment
 
@@ -72,7 +116,7 @@ Preferably http based (REST or SOAP) with XML or JSON message format.
 ## Security
 
 * Encrypted transport (TLS for HTTPS)
-* Session based or pr. message authentication
+* Session based or per message authentication
   - Each message can be digitally signed for stateless authentication
   - Digitally signed authentication with subsequent session identitier is also possible
 * Identification using X509 certificates
