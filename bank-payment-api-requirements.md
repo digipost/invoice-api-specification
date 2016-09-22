@@ -1,6 +1,13 @@
-# Requirements for bank provided payment APIs
+# Requirements for bank payment API
 
 This document describes the general requirements for the API that a bank provides to Digipost to allow customers/users to pay invoices directly from Digipost.
+
+When the customer receives an invoice in Digipost they will be prompted the option to set up 'one click payment' to their bank. They will then go through the following steps:
+
+1. Accept the terms of the service and allow Digipost to retrieeve their account list and create payments on their behalf. Digipost will optionally invoke the API-function [CreateAgreement](#createagreement)
+2. Select one or more accounts that will be used to pay invoices from. Digipost will invoke the API-function [GetAccountList](#getaccountlist)
+3. Pay invoices directly from digipost from one of the accounts selected above. Digipost will invoke the API-function [CreatePayment](#createpayment)
+
 
 ## Table of contents
 
