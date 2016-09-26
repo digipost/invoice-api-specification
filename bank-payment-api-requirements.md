@@ -79,11 +79,11 @@ HTTP/1.1 200 OK
   <account>
     <account-number>03786233254</account-number>
     <alias>Lønnskonto</alias>
-  <account>
+  </account>
   <account>
     <account-number>03786233255</account-number>
     <alias>Regninger</alias>
-  <account>
+  </account>
 </accounts>
 ```
 
