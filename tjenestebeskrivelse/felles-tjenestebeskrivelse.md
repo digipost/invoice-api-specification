@@ -22,25 +22,25 @@
 
 ## Innledning
 
-Dette dokumentet beskriver tjenestene Digipost tilbyr til banker for å integrere betaling av fakturaer mottatt i Digipost direkte i banken.
+Dette dokumentet beskriver tjenestene Digipost tilbyr til banker for at felles kunder som mottar fakturaer til sin digitale postkasse i Digipost, skal kunne se og legge disse til betaling i Bankes nettbank/mobilbank.
 Fakturaer kan betales på to måter og banken bør tilby begge samtidig for å gjøre betaling enklest og mest fleksibelt for brukeren:
 
-1. Betale direkte fra postkassen i Digipost
-2. Betale fra nettbanken på samme måte som e-faktura
+1. Send til forfall fra Digipost
+2. Vis faktura i nettbank
 
 ##	Parter og roller
 
 ### Digipost
 
-Digipost er Posten Norge AS sin digitale postkasse. Digipost mottar og oppbevarer fakturaer på vegne av sine brukere. Digipost tilbyr APIer som banken kan benytte til å tilby betaling av Digipost-fakturaer i sin løsning.
+Digipost er Posten Norge AS sin digitale postkasse. Digipost mottar og oppbevarer fakturaer på vegne av sine brukere som er fakturamottakere. Digipost tilbyr APIer som banken kan benytte til å tilby betaling av Digipost-fakturaer i sin løsning.
 
 ### Banken
 
 Banken tilbyr banktjenester til kunder som også kan være brukere i Digipost. Banken er klienten som ønsker å integrere funksjonalitet fra Digipost i sine løsninger. Banken kan enten integrere direkte med Digipost eller benytte en plattform levert av en underleverandør (se Figur 1). Tjenestene tilbys til banken uavhengig av om underleverandør benyttes. Nettbanken er en løsning som banken tilbyr sine kunder der de bl.a. kan betale fakturaer.
 
-### Brukeren / Kunden
+### Fakturamottaker / Brukeren / Kunden
 
-Brukeren er kunde hos og har konto i Digipost og/eller Banken. Der det er relevant skilles det mellom Digipost-bruker og bankbruker. Det er brukeren som eier fakturaene som oppbevares i Digipost. Brukeren ønsker å kunne betale fakturaer mottatt i Digipost på en enkel måte.
+Fakturamottaker er bruker hos og har konto i Digipost og/eller Banken. Der det er relevant skilles det mellom Digipost-bruker og bankbruker. Det er brukeren som eier fakturaene som oppbevares i Digipost. Brukeren ønsker å kunne betale fakturaer mottatt i Digipost på en enkel måte.
 
 ## Overordnet tjenestebeskrivelse
 
@@ -52,27 +52,27 @@ For å gjøre det enklest mulig for brukeren å betale fakturaen tilbyr Digipost
 
 ![Fakturavisning i Digipost](fakturavisning-digipost.png)
 
-###	Betal fra Digipost
+###	Send til forfall fra Digipost
 
 Brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank ved å trykke på knappen ”Send til nettbank” i høyremenyen i skjermbildet på Figur 1.
 
 Løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr. APIene må støtte å hente ut kontonummer og opprette betalinger. Se *[Betal fra Digipost](#betal-fra-digipost-1)* for detaljert løsningsbeskrivelse.
 
-###	Betal fra nettbanken
+###	Vis faktura i nettbank
 
-Brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret på samme måte som for e-faktura.
+Brukeren kan automatisk få tilgang til sine ubehandlede fakturaer, mottat i Digipost, i Banken sine nettløsninger. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret (på samme måte som for e-faktura).
 
 Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr. APIene støtter uthenting av fakturainformasjon og oppdatering av fakturastatus etter betaling. Se *[Betal fra nettbanken](#betal-fra-nettbanken-1)* for detaljert løsningsbeskrivelse.
 
 ![Integrasjonsalternativer](integrasjonsalternativer.png)
 
-##	Betal fra Digipost
+##	Send til forfall fra Digipost
 
 Denne seksjonen beskriver løsningen hvor brukeren kan sende fakturaen direkte til forfallsregisteret i sin bank fra Digipost. Løsningen baserer seg på at Digipost har en integrasjon med APIer som banken tilbyr (se Figur 3).
 
 ![Systemskisse for betal fra Digipost](systemskisse-betal-fra-digipost.png)
 
-Betal fra Digipost vil for brukeren innebære følgende steg i Digiposts brukergrensesnitt (se Figur 4):
+Send til forfall fra Digipost vil for brukeren innebære følgende steg i Digiposts brukergrensesnitt (se Figur 4):
 
 1.	Første gangs oppsett med aksept av avtale og valg av betalingskonto
 2.	Ett klikks legg faktura til forfall på kontoen som ble valgt i steg 1
@@ -95,15 +95,15 @@ Når brukeren har valgt betalingskonto vil hun kunne legge en faktura til forfal
 
 Brukeren kan avslutte avtalen enten fra Digipost eller fra banken. Hvis brukeren avslutter avtalen fra banken, vil Digipost få en melding om dette ved å gjøre et API-kall mot banken for å sjekke om en avtale fortsatt er gyldig. Skulle brukeren forsøke å betale en faktura etter at avtalen har blitt avsluttet i banken, vil betalingen avvises og brukeren vil få en melding om at avtalen har blitt avsluttet.
 
-##	Betal fra nettbanken
+##	Vis faktura i nettbank
 
-Denne seksjonene beskriver løsningen hvor brukeren kan betale fakturaen direkte fra nettbanken sin. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret.
+Denne seksjonene beskriver løsningen hvor brukeren kan automatisk få tilgang til sine ubehandlede fakturaer, mottat i Digipost, i Banken sine nettløsninger. Når brukeren logger på nettbanken hentes fakturainformasjonen fra Digipost og presenteres i nettbanken med mulighet til å legge den i forfallsregisteret.
 
 Løsningen baserer seg på at Banken har en integrasjon med APIer som Digipost tilbyr (se Figur 4).
 
 ![Systemskisse for betal fra nettbanken](systemskisse-betal-fra-bank.png)
 
-Betal fra nettbanken vil for brukeren innebære følgende steg i nettbankens brukergrensesnitt (Se Figur 6):
+Vis faktura i nettbanken vil for brukeren innebære følgende steg i nettbankens brukergrensesnitt (Se Figur 6):
 
 1.	Første gangs oppsett med aksept av avtale om utlevering av fakturainformasjon
 2.	Se oversikt over ubetalte fakturaer
