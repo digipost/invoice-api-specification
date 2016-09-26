@@ -35,7 +35,7 @@ The bank stores the agreement and uses it to authorize subsequent payments for t
 POST /api/agreements
 
 <agreement>
-  <bank-identifier>1234-xyz</bank-identifier>
+  <bank-identifier>1234</bank-identifier>
   <user-id>10037819032</user-id>
   <signed-agreement>...</signed-agreement>
 </agreement>
@@ -68,7 +68,7 @@ Digipost retrieves the account list and presents it to the user which chooses wh
 
 ### Example request
 ```
-GET /api/accounts?user-id=10037819032&bank-identifier=1234-xyz
+GET /api/accounts?user-id=10037819032&bank-identifier=1234
 ```
 
 ### Example response
@@ -95,19 +95,47 @@ After successful response it is expected that the invoice has been added to pend
 
 ### Request (parameters)
 
-* bank-identifier
-* personal-identification-number (fødselsnummer)
-* from account number (chosen previously)
-* to account number
-* CID/KID (optional for certain credit card invoices)
-* amount
-* due date
-* invoice issuer name (optional)
-* Digipost invoice id (optional, can be used to retrieve invoice specification pdf/html)
+|Field name     |Type   |Length|Description|
+|---------------|-------|------|-----------|
+|bank-identifier|string |      |Used to identify the bank when multiple banks use the same payment platform|
+|user-id        |string |11    |Fødselsnummer|
+|from-account-number|string|11 |The account to pay from|
+|to-account-number|string|11   |The receiver's account number|
+|kid            |string |25    |Customer identification (kundeidentifikasjon)|
+|amount         |decimal|10    |Payment amount|
+|due-date       |date   |10    |Invoice due date|
+|issuer-name    |string |80    |(optional) The name of the invoice issuer|
+|invoice-id     |string |20    |(optional) Invoice ID that can be used to retrieve the invoice specification in pdf/html from Digipost|
 
 ### Response
 
-* payment identifier (to be able to trace back to the payment if neccessary)
+|Field name     |Type   |Length|Description|
+|---------------|-------|------|-----------|
+|payment-id     |string |      |Payment identifier to be able to trace back to the payment if neccessary|
+
+### Example request
+```xml
+POST /api/payments
+
+<payment>
+  <bank-identifier>1234</bank-identifier>
+  <user-id>10037819032</user-id>
+  <from-account-number>14300642641</from-account-number>
+  <to-account-number>20951981088</to-account-number>
+  <kid>120002315493</kid>
+  <amount>245.65</amount>
+  <due-date>2016-10-23</due-date>
+  <issuer-name>Hafslund</issuer-name>
+  <invoice-id>876867</invoice-id>
+</payment>
+```
+
+### Example response
+```xml
+HTTP/1.1 200 Ok
+
+<payment-id>879823475</payment-id>
+```
 
 ## API type
 
