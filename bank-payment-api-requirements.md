@@ -8,6 +8,7 @@ When the customer receives an invoice in Digipost they will be prompted the opti
 2. Select one or more accounts that will be used to pay invoices from. Digipost will invoke the API-function [GetAccountList](#getaccountlist)
 3. Pay invoices directly from Digipost from one of the accounts selected above. Digipost will invoke the API-function [CreatePayment](#createpayment)
 
+![Send to bank sequence](send-to-bank-sequence.png)
 
 ## Table of contents
 

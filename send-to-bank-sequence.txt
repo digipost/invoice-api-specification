@@ -1,0 +1,29 @@
+# https://www.websequencediagrams.com/?lz=dGl0bGUgU2VuZCBEaWdpcG9zdCBpbnZvaWNlIHRvIGJhbmsKCnBhcnRpY2lwYW50IFVzZXIABA0ALwgAGQ1CADMFCgBLCC0-VXNlcjogTmV3AFUJbm90aWZpY2F0aW9uClVzZXItPgB6CDogVmlldyBJAIECBgAMEVNlbGVjAF0HACkQQWNjZXAgYWdyZWVtZW50CgpvcHQAfAtCYW5rOiBDcmVhdGVBABwJQmFuawA4DQA3CCBjACUFZAplbmQAgUIMAEEGR2V0QWNjb3VudExpc3QoZm5yKQA5EgAbBiBsaXN0IHdpdGggYWxpYXNlcwCBYhFDaG9vc2UgYQBMBnMKCm5vdGUgb3ZlcgCDEQk6IEluaXRpYWwgc2V0dXAgY29tcGxldGUuIFN1YnNlcXVlbgCDNQlzIHByb2Nlc3NlZABPBXJkaW5nIHRvIHN0ZXBzIGJlbG93CgCCZxFQYXkAg3cIAIIfF1BheQCCFQUoZm5yLCBraWQsIGJlbMO4cCwgZm9yZmFsbHNkYXRvLCBmcmFrb250bywgdGlsAAUFAIIMEgBGBy1JRACEGhEAg3YHIHNlbnQAhQEJ&s=rose
+
+title Send Digipost invoice to bank
+
+participant User
+participant Digipost
+participant Bank
+
+
+Digipost->User: New invoice notification
+User->Digipost: View Invoice
+User->Digipost: Select Bank
+User->Digipost: Accep agreement
+
+opt
+Digipost->Bank: CreateAgreement
+Bank->Digipost: Agreement created
+end
+
+Digipost->Bank: GetAccountList(fnr)
+Bank->Digipost: Account list with aliases
+User->Digipost: Choose accounts
+
+note over Digipost: Initial setup complete. Subsequent invoices processed according to steps below
+
+User->Digipost: Pay invoice
+Digipost->Bank: CreatePayment (fnr, kid, beløp, forfallsdato, frakonto, tilkonto)
+Bank->Digipost: Payment-ID
+Digipost->User: Invoice sent to bank
