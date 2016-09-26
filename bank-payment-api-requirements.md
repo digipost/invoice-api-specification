@@ -140,7 +140,7 @@ HTTP/1.1 200 Ok
 
 ## API type
 
-Preferably http based (REST or SOAP) with XML or JSON message format.
+HTTP based with XML or JSON message format.
 
 ## Security
 
