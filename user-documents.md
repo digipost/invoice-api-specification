@@ -154,7 +154,6 @@ HTTP/1.1 200 Ok
 
 * `HTTP 404 + UNKNOWN_USER`: No agrement found because the userId is not a Digipost user
 * `HTTP 404 + NO_AGREEMENT`: The userId is a Digipost user but no agreement exists
-* `HTTP 404 + AGREEMENT_DELETED`: The userId is a Digipost user with no currently active agreement. The user has previously deleted an agreement of the same type.
 
 ### Get all agreements for a specific user
 
