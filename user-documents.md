@@ -242,6 +242,13 @@ List<Document> documents = client.getDocuments(senderId, INVOICE_BANK, userId, I
 
 #### Request
 
+|Parameter|Type  |Description|
+|---------|------|-----------|
+|user-id  |string|Fødselsnummer|
+|agreement-type|string|Supported values: `invoice-bank`|
+|invoice-status|string|Filter parameter for invoice status: `unpaid`, `paid`, `deleted`|
+|invoice-due-date-from|date|Filter parameter for invoice du date, Example: `20150101`|
+
 ```
 GET /api/<sender-id>/user-documents?user-id=01018012345&agreement-type=invoice-bank&invoice-status=unpaid&invoice-due-date-from=20150101
 Accept: application/vnd.digipost.user-v1+xml
@@ -263,7 +270,7 @@ HTTP/1.1 200 Ok
       <amount>299.40</amount>
       <status>unpaid</status>
     </invoice>
-    <document-content-url>/api/1111/user-document-content/1234-xyz-000</document-content-url>
+    <document-content-uri>/api/1111/user-document-content/1234-xyz-000</document-content-uri>
   </document>
 </document>
 ```
@@ -374,7 +381,7 @@ After successful update the entire document state can be refreshed from the url 
 
 Operation: GetDocumentContent
 
-Perform a GET against <document-content-uri> and redirect the user’s browser to the uri in the response Location header.
+Perform a GET against <document-content-uri> and redirect the user’s browser to the uri in the response.
 
 #### Request:
 
@@ -393,6 +400,11 @@ HTTP/1.1 200 Ok
   <uri>https://www.digipostdata.no/documents/34303129?token=30a6648a2cb1ce05d31dd6188135d7107c87d353dfe60f7720a598c4d6a95c2e4cf05f3ab63e52d734d745c2bf5084d37347f58aeca9da743235cf37cdca0ecb&download=false</uri>
 </document-content>
 ```
+
+Supported values for `content-type`:
+
+* `application/pdf`
+* `application/html`
 
 [Details on how the token is generated and validated](#document-content-token)
 
