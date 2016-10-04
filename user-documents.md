@@ -246,8 +246,8 @@ List<Document> documents = client.getDocuments(senderId, INVOICE_BANK, userId, I
 |---------|------|-----------|
 |user-id  |string|Fødselsnummer|
 |agreement-type|string|Supported values: `invoice-bank`|
-|invoice-status|string|Filter parameter for invoice status: `unpaid`, `paid`, `deleted`|
-|invoice-due-date-from|date|Filter parameter for invoice du date, Example: `20150101`|
+|invoice-status|string|Only return invoices with the given status: `unpaid`, `paid` or `deleted`|
+|invoice-due-date-from|date|Only return invoices with due date after this date. Example: `20150101`|
 
 ```
 GET /api/<sender-id>/user-documents?user-id=01018012345&agreement-type=invoice-bank&invoice-status=unpaid&invoice-due-date-from=20150101
