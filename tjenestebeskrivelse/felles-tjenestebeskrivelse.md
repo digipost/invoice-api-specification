@@ -25,8 +25,8 @@
 Dette dokumentet beskriver tjenestene Digipost tilbyr til banker for at felles kunder som mottar fakturaer til sin digitale postkasse i Digipost, skal kunne se og legge disse til betaling i Bankes nettbank/mobilbank.
 Fakturaer kan betales på to måter og banken bør tilby begge samtidig for å gjøre betaling enklest og mest fleksibelt for brukeren:
 
-1. Send til forfall fra Digipost
-2. Vis faktura i nettbank
+1. Send til nettbankens forfallsregister fra Digipost.
+2. Vis og betal faktura i nettbanken.
 
 ##	Parter og roller
 
@@ -41,6 +41,8 @@ Banken tilbyr banktjenester til kunder som også kan være brukere i Digipost. B
 ### Fakturamottaker / Brukeren / Kunden
 
 Fakturamottaker er bruker hos og har konto i Digipost og/eller Banken. Der det er relevant skilles det mellom Digipost-bruker og bankbruker. Det er brukeren som eier fakturaene som oppbevares i Digipost. Brukeren ønsker å kunne betale fakturaer mottatt i Digipost på en enkel måte.
+
+Bruker kan til enhver tid se alle sine fakturaer, og få en status på disse, ved å logge inn i Digipost. Dette i motsetning til eFaktura, hvor bruker kun kan se fakturaer i nettbanken, eller at banken må se status på Nets Online. Dersom brukeren ikke finner en faktura i Digipost, har brukeren enten selv slettet den eller aldri mottatt den fra fakturautsteder.
 
 ## Overordnet tjenestebeskrivelse
 
